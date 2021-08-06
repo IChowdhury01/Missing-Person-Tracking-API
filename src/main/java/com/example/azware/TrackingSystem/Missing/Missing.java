@@ -9,21 +9,21 @@ public class Missing {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)     // Autogenerate missing report IDs
     private Long id;
-    private String reporter;
-    private String missingPerson;
+    private String reporterName;
+    private String name;
     private String description;
 
-    public Missing(Long id, String reporter, String missingPerson, String description) {
+    public Missing(Long id, String reporterName, String name, String description) {
         this.id = id;
-        this.reporter = reporter;
-        this.missingPerson = missingPerson;
+        this.reporterName = reporterName;
+        this.name = name;
         this.description = description;
     }
 
     // Overload constructor. No ID
-    public Missing(String reporter, String missingPerson, String description) {
-        this.reporter = reporter;
-        this.missingPerson = missingPerson;
+    public Missing(String reporterName, String name, String description) {
+        this.reporterName = reporterName;
+        this.name = name;
         this.description = description;
     }
 
@@ -35,20 +35,20 @@ public class Missing {
         this.id = id;
     }
 
-    public String getReporter() {
-        return reporter;
+    public String getReporterName() {
+        return reporterName;
     }
 
-    public void setReporter(String reporter) {
-        this.reporter = reporter;
+    public void setReporterName(String reporterName) {
+        this.reporterName = reporterName;
     }
 
-    public String getMissingPerson() {
-        return missingPerson;
+    public String getName() {
+        return name;
     }
 
-    public void setMissingPerson(String missingPerson) {
-        this.missingPerson = missingPerson;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getDescription() {
@@ -63,8 +63,8 @@ public class Missing {
     public String toString() {
         return "MissingReport{" +
                 "id=" + id +
-                ", reporter='" + reporter + '\'' +
-                ", missingPerson='" + missingPerson + '\'' +
+                ", reporter='" + reporterName + '\'' +
+                ", missingPerson='" + name + '\'' +
                 ", description='" + description + '\'' +
                 '}';
     }

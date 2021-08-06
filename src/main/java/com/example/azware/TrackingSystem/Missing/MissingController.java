@@ -1,9 +1,7 @@
 package com.example.azware.TrackingSystem.Missing;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -22,5 +20,11 @@ public class MissingController {
     @GetMapping
     public List<Missing> getMissingReports() {
         return missingService.getMissingReports();
+    }
+
+    // Add missing person
+    @PostMapping
+    public void addMissingReport(@RequestBody Missing missingReport) {  // Convert POST request body to Missing obj
+        missingService.addMissingReport(missingReport);
     }
 }

@@ -18,4 +18,8 @@ public class SightingService {
     public List<Sighting> getSightings() {
         return sightingRepository.findAll();
     }
+
+    public void addSighting(Sighting sighting) {
+        sightingRepository.save(sighting);
+    }
 }

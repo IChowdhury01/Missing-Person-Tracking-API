@@ -16,8 +16,6 @@ An API for reporting and tracking sightings of missing people, built with Spring
 
 - Edit missing person and sighting reports.
 
-- Remove missing person and sighting reports.
-
 # Getting Started
 
 ## Prerequisites
@@ -32,10 +30,10 @@ An API for reporting and tracking sightings of missing people, built with Spring
 
 2. Navigate to TrackingSystemApplication.java and run it.
 
-3. Open an internet browser and go to one of the URI's below to access the API.
+3. Using CURL or an HTTP client like Postman, send GET, POST, or PUT requests to one of the URI's below to access the API.
 
 ### Endpoints
 
-- http://localhost:8080/api/missing - View all missing person reports
+- http://localhost:8080/api/missing - GET request to view all missing person reports. POST/PUT to insert/update a report.
 
-- http://localhost:8080/api/sightings - View all sightings
+- http://localhost:8080/api/sightings - GET request to view all sightings. POST/PUT to insert/update sightings.

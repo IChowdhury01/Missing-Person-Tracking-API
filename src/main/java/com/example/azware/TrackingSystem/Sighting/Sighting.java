@@ -10,27 +10,27 @@ public class Sighting {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String reporter;
+    private String reporterName;
     private byte[] image;   // Image stored as byte array
     private String comments;
 
-    public Sighting(Long id, String reporter, byte[] image, String comments) {
+    public Sighting(Long id, String reporterName, byte[] image, String comments) {
         this.id = id;
-        this.reporter = reporter;
+        this.reporterName = reporterName;
         this.image = image;
         this.comments = comments;
     }
 
     // No ID
-    public Sighting(String reporter, byte[] image, String comments) {
-        this.reporter = reporter;
+    public Sighting(String reporterName, byte[] image, String comments) {
+        this.reporterName = reporterName;
         this.image = image;
         this.comments = comments;
     }
 
     // No ID or image input
-    public Sighting(String reporter, String comments) {
-        this.reporter = reporter;
+    public Sighting(String reporterName, String comments) {
+        this.reporterName = reporterName;
         this.comments = comments;
         this.image = new byte[0];
     }
@@ -43,12 +43,12 @@ public class Sighting {
         this.id = id;
     }
 
-    public String getReporter() {
-        return reporter;
+    public String getReporterName() {
+        return reporterName;
     }
 
-    public void setReporter(String reporter) {
-        this.reporter = reporter;
+    public void setReporterName(String reporterName) {
+        this.reporterName = reporterName;
     }
 
     public byte[] getImage() {
@@ -71,7 +71,7 @@ public class Sighting {
     public String toString() {
         return "SightingReport{" +
                 "id=" + id +
-                ", reporter='" + reporter + '\'' +
+                ", reporter='" + reporterName + '\'' +
                 ", image=" + Arrays.toString(image) +
                 ", comments='" + comments + '\'' +
                 '}';
