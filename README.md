@@ -1,6 +1,6 @@
 # Missing Person Tracking API
 
-A REST API for reporting and tracking sightings of missing people, built with Spring Boot and PostgreSQL.
+An API for reporting and tracking sightings of missing people, built with Spring Boot and PostgreSQL.
 
 ![build-pending](https://img.shields.io/badge/build-pending-yellow) ![release-v0.1](https://img.shields.io/badge/release-v0.5-blue) ![dependencies-up-to-date](https://img.shields.io/badge/dependencies-up%20to%20date-green)
 
