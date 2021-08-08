@@ -53,9 +53,9 @@ An API for reporting and tracking sightings of missing people, built with Spring
 - http://localhost:8080/api/sightings/{id}
     - `PUT` to edit a sighting report
 
-**Note:** PUT requests and photo upload POST requests must be sent as multi-part forms.
+**Note:** PUT requests and photo upload POST requests must be sent as multi-part forms. The rest can be sent as raw JSONs.
 
-### HTTP Request Syntax
+### JSON Syntax
 
 ```
 Missing People
