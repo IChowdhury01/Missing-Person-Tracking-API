@@ -1,38 +1,39 @@
 package com.example.azware.TrackingSystem.Sighting;
 
 import javax.persistence.*;
-import java.util.Arrays;
 
 // Sighting Report
 @Entity
 @Table
 public class Sighting {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String reporterName;
-    private byte[] image;   // Image stored as byte array
+    private String imgPath;   // Uploaded image stored as url in API
     private String comments;
 
-    public Sighting(Long id, String reporterName, byte[] image, String comments) {
-        this.id = id;
+    public Sighting() {
+    }
+
+    public Sighting(Long sightingID, String reporterName, String imgPath, String comments) {
+        this.id = sightingID;
         this.reporterName = reporterName;
-        this.image = image;
+        this.imgPath = imgPath;
         this.comments = comments;
     }
 
     // No ID
-    public Sighting(String reporterName, byte[] image, String comments) {
+    public Sighting(String reporterName, String imgPath, String comments) {
         this.reporterName = reporterName;
-        this.image = image;
+        this.imgPath = imgPath;
         this.comments = comments;
     }
 
-    // No ID or image input
+    // No image input
     public Sighting(String reporterName, String comments) {
         this.reporterName = reporterName;
         this.comments = comments;
-        this.image = new byte[0];
     }
 
     public Long getId() {
@@ -51,12 +52,12 @@ public class Sighting {
         this.reporterName = reporterName;
     }
 
-    public byte[] getImage() {
-        return image;
+    public String getImgPath() {
+        return imgPath;
     }
 
-    public void setImage(byte[] image) {
-        this.image = image;
+    public void setImgPath(String imgPath) {
+        this.imgPath = imgPath;
     }
 
     public String getComments() {
@@ -69,10 +70,10 @@ public class Sighting {
 
     @Override
     public String toString() {
-        return "SightingReport{" +
+        return "Sighting{" +
                 "id=" + id +
-                ", reporter='" + reporterName + '\'' +
-                ", image=" + Arrays.toString(image) +
+                ", reporterName='" + reporterName + '\'' +
+                ", imgLink='" + imgPath + '\'' +
                 ", comments='" + comments + '\'' +
                 '}';
     }

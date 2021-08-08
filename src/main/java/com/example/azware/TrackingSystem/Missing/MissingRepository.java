@@ -13,4 +13,5 @@ public interface MissingRepository extends JpaRepository<Missing, Long> {
 
     // Find missing person by name. If name exists in DB -> optional.isPresent() = true
     Optional<Missing> findMissingByName(String name);
+    Optional<Missing> findMissingById(Long id);
 }

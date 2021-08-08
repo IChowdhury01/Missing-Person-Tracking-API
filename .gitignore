@@ -36,3 +36,5 @@ build/
 /mvnw
 /mvnw.cmd
 /hs_err_pid10808.log
+/data/
+/src/main/resources/images/

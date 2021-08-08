@@ -24,7 +24,17 @@ public class MissingController {
 
     // Add missing person
     @PostMapping
-    public void addMissingReport(@RequestBody Missing missingReport) {  // Convert POST request body to Missing obj
+    // Take in the body of the HTTP POST request (JSON), deserialize to Missing object
+    public void addMissingReport(@RequestBody Missing missingReport) {
         missingService.addMissingReport(missingReport);
+    }
+
+    @PutMapping(path = "{id}")  //api/missing/{id}
+    // Update field values for missing person report with the given ID
+    public void updateMissingReport(@PathVariable("id") Long id,
+                                    @RequestParam(required = false) String reporterName,
+                                    @RequestParam(required = false) String name,
+                                    @RequestParam(required = false) String description) {
+        missingService.updateMissingReport(id, reporterName, name, description);
     }
 }

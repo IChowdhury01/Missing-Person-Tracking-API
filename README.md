@@ -1,16 +1,16 @@
 # Missing Person Tracking API
 
-An API for reporting and tracking sightings of missing people, built with Spring Boot and PostgreSQL.
+An API for reporting and tracking sightings of missing people, built with Spring Boot and PostgreSQL/H2.
 
-![build-pending](https://img.shields.io/badge/build-pending-yellow) ![release-v0.1](https://img.shields.io/badge/release-v0.5-blue) ![dependencies-up-to-date](https://img.shields.io/badge/dependencies-up%20to%20date-green)
+![build-complete](https://img.shields.io/badge/build-complete-green) ![release-v0.1](https://img.shields.io/badge/release-v1.0-blue) ![dependencies-up-to-date](https://img.shields.io/badge/dependencies-up%20to%20date-green)
 
 # Features
 
-- View all missing person reports.
+- View all people reported missing.
 
-- View all sightings
+- View all sightings, with photos
 
-- Upload reports of missing people.
+- Report missing people.
 
 - Report sightings of missing people, with optional image upload.
 
@@ -20,20 +20,54 @@ An API for reporting and tracking sightings of missing people, built with Spring
 
 ## Prerequisites
 
-- [Java JDK 8+](https://www.oracle.com/java/technologies/javase-downloads.html)
-- [PostgreSQL 13+](https://www.postgresql.org/download/)
-- Any Java IDE, such as [IntelliJ](https://www.jetbrains.com/idea/download/#section=windows)
+- [Java Runtime Environment 8+](https://www.java.com/en/download/manual.jsp)
+- [PostgreSQL 13+](https://www.postgresql.org/download/) (Optional)
+- Any HTTP client, like [Postman](https://www.postman.com/downloads/)
 
-## Local Installation
+## Installation
 
-1. Download and open the folder in an IDE.
+1. If you want to use a PostgreSQL server instead of H2: download and install PostgreSQL. Then enter your database configuration in the /src/resources/application.properties file, and build a new .JAR file.
 
-2. Navigate to TrackingSystemApplication.java and run it.
+2. Download the .JAR file for this project from the releases tab.
 
-3. Using CURL or an HTTP client like Postman, send GET, POST, or PUT requests to one of the URI's below to access the API.
+3. Open a command prompt and navigate to the directory of the .JAR file.
+
+4. `java -jar TrackingSystem-0.0.1-SNAPSHOT.jar`
+
+5. After running the .JAR, use an HTTP client to send GET, POST, or PUT requests to the endpoints above.
+
+# Usage
 
 ### Endpoints
 
-- http://localhost:8080/api/missing - GET request to view all missing person reports. POST/PUT to insert/update a report.
+- http://localhost:8080/api/missing
+    - `GET` to view all missing people
+    - `POST` to report a missing person
+- http://localhost:8080/api/missing/{id}
+    - `PUT` to edit a missing person report
+- http://localhost:8080/api/sightings
+    - `GET` to view all sightings
+    - `POST` to report a sighting
+- http://localhost:8080/api/sightings/{id}/image/upload
+    - `POST` to upload a sighting photo
+- http://localhost:8080/api/sightings/{id}
+    - `PUT` to edit a sighting report
 
-- http://localhost:8080/api/sightings - GET request to view all sightings. POST/PUT to insert/update sightings.
+### HTTP Request Syntax
+
+```
+Missing People
+{
+    "reporterName": "...",
+    "name": "...",
+    "description": "..."
+}
+
+Sightings
+{
+  "reporterName": "...",
+  "imgPath": "./src/main/resources/images/...",
+  "comments": "..."
+}
+
+```
