@@ -34,7 +34,7 @@ An API for reporting and tracking sightings of missing people, built with Spring
 
 4. `java -jar TrackingSystem-0.0.1-SNAPSHOT.jar`
 
-5. After running the .JAR, use an HTTP client to send GET, POST, or PUT requests to the endpoints above.
+5. After running the .JAR, use an HTTP client to send GET, POST, or PUT requests to the endpoints below.
 
 # Usage
 
@@ -52,6 +52,8 @@ An API for reporting and tracking sightings of missing people, built with Spring
     - `POST` to upload a sighting photo
 - http://localhost:8080/api/sightings/{id}
     - `PUT` to edit a sighting report
+
+**Note:** PUT requests and photo upload POST requests must be sent as multi-part forms.
 
 ### HTTP Request Syntax
 
