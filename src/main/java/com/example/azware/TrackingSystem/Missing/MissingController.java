@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-// Presentation layer. Class for establishing API endpoints for presenting data.
+// Controller layer. Class for establishing API endpoints and parsing HTTP requests.
 @RestController
 @RequestMapping(path = "/api/missing")
 public class MissingController {
